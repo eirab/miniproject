@@ -12,7 +12,7 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 /* Declarations of system-specific addresses etc */
-#include "/home/eira/MPLABXProjects/mipslab.h"  /* Declatations for these labs */
+#include "mipslab.h"  /* Declatations for these labs */
 #include <xc.h>
 //int nextprime( int inval );
 //char * itoaconv( int num );
@@ -65,7 +65,7 @@ void labinit( void )
     IEC0 =  IEC0 | 0x100;   //Set bit 8 to 1 in Interrupt Enable Control Register, T2IE = interrupt enable bit 
     IEC0SET = 0x80;           //Surprise
     IPC1SET = 0x1C00;
-    IPC2 = IPC(2) | 0x1F;    //Set interrupt priorities to highest setting because lecture 6 said so
+//    IPC2 = IPC(2) | 0x1F;    //Set interrupt priorities to highest setting because lecture 6 said so
     enable_interrupt();       //Call enable interrupt that is in labwork.S
     
   return;

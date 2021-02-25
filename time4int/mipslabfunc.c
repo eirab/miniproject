@@ -6,7 +6,7 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
  /* Declarations of system-specific addresses etc */
-#include "/home/eira/MPLABXProjects/mipslab.h"  /* Declatations for these labs */
+#include "mipslab.h"  /* Declatations for these labs */
 #include <xc.h>
 /* Declare a helper function which is local to this file */
 static void num32asc( char * s, int ); 
@@ -27,9 +27,16 @@ static void num32asc( char * s, int );
    A simple function to create a small delay.
    Very inefficient use of computing resources,
    but very handy in some special cases. */
+uint8_t nextFrame[128*4] = {0}; 
 void quicksleep(int cyc) {
 	int i;
 	for(i = cyc; i > 0; i--);
+}
+
+void update_frame(int x, int y){
+    short offset = 0;
+    if (y > 0) { offset = y / 8; }
+    nextFrame[offset * 128 + x] |= 1 << (y - offset * 8);
 }
 
 /* tick:
@@ -100,7 +107,7 @@ void display_init(void) {
         DISPLAY_CHANGE_TO_COMMAND_MODE;
 	quicksleep(10);
 	DISPLAY_ACTIVATE_VDD;
-	quicksleep(1000000);
+	quicksleep(10000);
 	
 	spi_send_recv(0xAE);
 	DISPLAY_ACTIVATE_RESET;
@@ -115,7 +122,7 @@ void display_init(void) {
 	spi_send_recv(0xF1);
 	
 	DISPLAY_ACTIVATE_VBAT;
-	quicksleep(10000000);
+	quicksleep(100000);
 	
 	spi_send_recv(0xA1);
 	spi_send_recv(0xC8);
@@ -141,22 +148,22 @@ void display_string(int line, char *s) {
 			textbuffer[line][i] = ' ';
 }
 
-void display_image(int x, const uint8_t *data) {
+void display_image( ) {
 	int i, j;
 	
 	for(i = 0; i < 4; i++) {
 		DISPLAY_CHANGE_TO_COMMAND_MODE;
-
+        //Set page address(offset on y))
 		spi_send_recv(0x22);
 		spi_send_recv(i);
-		
-		spi_send_recv(x & 0xF);
-		spi_send_recv(0x10 | ((x >> 4) & 0xF));
+		//sets offset on x axis
+		spi_send_recv(0 & 0xF);
+		spi_send_recv(0x10 | (( 0 >> 4) & 0xF));
 		
 		DISPLAY_CHANGE_TO_DATA_MODE;
-		
-		for(j = 0; j < 32; j++)
-			spi_send_recv(~data[i*32 + j]);
+		//sends the data to the display.
+		for(j = 0; j < 128; j++)
+			spi_send_recv(nextFrame[i*128 + j]);
 	}
 }
 
