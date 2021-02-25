@@ -100,7 +100,6 @@ int main(void) {
 	display_init();
  
 	display_update();
-    display_image(icon);
        
     update_frame(10,27);
     update_frame(10,28);
