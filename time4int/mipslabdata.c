@@ -6,7 +6,7 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <xc.h>
-#include "/home/eira/MPLABXProjects/mipslab.h" /* Declatations for these labs */
+#include "mipslab.h" /* Declatations for these labs */
 
 char textbuffer[4][16];
 

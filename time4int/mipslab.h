@@ -8,11 +8,12 @@
    For copyright and licensing, see file COPYING */
 
 /* Declare display-related functions from mipslabfunc.c */
-void display_image(int x, const uint8_t *data);
+void display_image();
 void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
 uint8_t spi_send_recv(uint8_t data);
+void update_frame(int x, int y);
 
 /* Declare lab-related functions from mipslabfunc.c */
 int nextprime( int inval );

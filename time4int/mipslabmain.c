@@ -19,7 +19,7 @@
 // DEVCFG2
 #pragma config FPLLIDIV = DIV_12        // PLL Input Divider (12x Divider)
 #pragma config FPLLMUL = MUL_24         // PLL Multiplier (24x Multiplier)
-#pragma config FPLLODIV = DIV_256       // System PLL Output Clock Divider (PLL Divide by 256)
+#pragma config FPLLODIV = DIV_1       // System PLL Output Clock Divider (PLL Divide by 256)
 
 // DEVCFG1
 #pragma config FNOSC = FRCDIV           // Oscillator Selection Bits (Fast RC Osc w/Div-by-N (FRCDIV))
@@ -27,7 +27,7 @@
 #pragma config IESO = ON                // Internal/External Switch Over (Enabled)
 #pragma config POSCMOD = OFF            // Primary Oscillator Configuration (Primary osc disabled)
 #pragma config OSCIOFNC = ON            // CLKO Output Signal Active on the OSCO Pin (Enabled)
-#pragma config FPBDIV = DIV_8           // Peripheral Clock Divisor (Pb_Clk is Sys_Clk/8)
+#pragma config FPBDIV = DIV_1          // Peripheral Clock Divisor (Pb_Clk is Sys_Clk/8)
 #pragma config FCKSM = CSDCMD           // Clock Switching and Monitor Selection (Clock Switch Disable, FSCM Disabled)
 #pragma config WDTPS = PS1048576        // Watchdog Timer Postscaler (1:1048576)
 #pragma config FWDTEN = ON              // Watchdog Timer Enable (WDT Enabled)
@@ -45,13 +45,16 @@
 #include <xc.h>
 #include <stdint.h>   /* Declarations of uint_32 and the like */
  /* Declarations of system-specific addresses etc */
-#include "/home/eira/MPLABXProjects/mipslab.h"  /* Declatations for these labs */
+#include "mipslab.h"  /* Declatations for these labs */
+#include "ground.h"
+
 
 
 
 
 
 int main(void) {
+
         /*
 	  This will set the peripheral bus clock to the same frequency
 	  as the sysclock. That means 80 MHz, when the microcontroller
@@ -95,19 +98,26 @@ int main(void) {
 	SPI2CONSET = 0x8000;
 	
 	display_init();
-	display_string(0, "KTH/ICT lab");
-	display_string(1, "in Computer");
-	display_string(2, "Engineering");
-	display_string(3, "Welcome!");
+ 
 	display_update();
-	
-	display_image(96, icon);
-	
-	labinit(); /* Do any lab-specific initialization */
+    display_image(icon);
+       
+    update_frame(10,27);
+    update_frame(10,28);
+    update_frame(11,27);
+    update_frame(11,28);
+    ground_init();
+	display_image();
+    display_update();
+	while(1){
+        display_image();
+    }
+	//labinit(); /* Do any lab-specific initialization */
 
-	while( 1 )
-	{
-	  labwork(); /* Do lab-specific things again and again */
-	}
+//	while( 1 )
+//	{
+//	  labwork(); /* Do lab-specific things again and again */
+//	}
+ 
 	return 0;
 }

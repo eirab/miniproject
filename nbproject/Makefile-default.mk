@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=mkdir -p
+MKDIR=gnumkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=time4int/mipslabfunc.c time4int/mipslabmain.c time4int/time4io.c time4int/mipslabdata.c time4int/stubs.c time4int/mipslabwork.c time4int/vectors.S time4int/labwork.S
+SOURCEFILES_QUOTED_IF_SPACED=time4int/mipslabfunc.c time4int/mipslabmain.c time4int/time4io.c time4int/mipslabdata.c time4int/stubs.c time4int/mipslabwork.c time4int/vectors.S time4int/labwork.S time4int/ground.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/time4int/mipslabfunc.o ${OBJECTDIR}/time4int/mipslabmain.o ${OBJECTDIR}/time4int/time4io.o ${OBJECTDIR}/time4int/mipslabdata.o ${OBJECTDIR}/time4int/stubs.o ${OBJECTDIR}/time4int/mipslabwork.o ${OBJECTDIR}/time4int/vectors.o ${OBJECTDIR}/time4int/labwork.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/time4int/mipslabfunc.o.d ${OBJECTDIR}/time4int/mipslabmain.o.d ${OBJECTDIR}/time4int/time4io.o.d ${OBJECTDIR}/time4int/mipslabdata.o.d ${OBJECTDIR}/time4int/stubs.o.d ${OBJECTDIR}/time4int/mipslabwork.o.d ${OBJECTDIR}/time4int/vectors.o.d ${OBJECTDIR}/time4int/labwork.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/time4int/mipslabfunc.o ${OBJECTDIR}/time4int/mipslabmain.o ${OBJECTDIR}/time4int/time4io.o ${OBJECTDIR}/time4int/mipslabdata.o ${OBJECTDIR}/time4int/stubs.o ${OBJECTDIR}/time4int/mipslabwork.o ${OBJECTDIR}/time4int/vectors.o ${OBJECTDIR}/time4int/labwork.o ${OBJECTDIR}/time4int/ground.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/time4int/mipslabfunc.o.d ${OBJECTDIR}/time4int/mipslabmain.o.d ${OBJECTDIR}/time4int/time4io.o.d ${OBJECTDIR}/time4int/mipslabdata.o.d ${OBJECTDIR}/time4int/stubs.o.d ${OBJECTDIR}/time4int/mipslabwork.o.d ${OBJECTDIR}/time4int/vectors.o.d ${OBJECTDIR}/time4int/labwork.o.d ${OBJECTDIR}/time4int/ground.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/time4int/mipslabfunc.o ${OBJECTDIR}/time4int/mipslabmain.o ${OBJECTDIR}/time4int/time4io.o ${OBJECTDIR}/time4int/mipslabdata.o ${OBJECTDIR}/time4int/stubs.o ${OBJECTDIR}/time4int/mipslabwork.o ${OBJECTDIR}/time4int/vectors.o ${OBJECTDIR}/time4int/labwork.o
+OBJECTFILES=${OBJECTDIR}/time4int/mipslabfunc.o ${OBJECTDIR}/time4int/mipslabmain.o ${OBJECTDIR}/time4int/time4io.o ${OBJECTDIR}/time4int/mipslabdata.o ${OBJECTDIR}/time4int/stubs.o ${OBJECTDIR}/time4int/mipslabwork.o ${OBJECTDIR}/time4int/vectors.o ${OBJECTDIR}/time4int/labwork.o ${OBJECTDIR}/time4int/ground.o
 
 # Source Files
-SOURCEFILES=time4int/mipslabfunc.c time4int/mipslabmain.c time4int/time4io.c time4int/mipslabdata.c time4int/stubs.c time4int/mipslabwork.c time4int/vectors.S time4int/labwork.S
+SOURCEFILES=time4int/mipslabfunc.c time4int/mipslabmain.c time4int/time4io.c time4int/mipslabdata.c time4int/stubs.c time4int/mipslabwork.c time4int/vectors.S time4int/labwork.S time4int/ground.c
 
 
 
@@ -88,7 +88,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=32MX340F512H
 MP_LINKER_FILE_OPTION=
@@ -101,7 +101,7 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assembleWithPreprocess
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/time4int/vectors.o: time4int/vectors.S  .generated_files/b370241d5afa5f987687139b5962386e5add0bd3.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/vectors.o: time4int/vectors.S  .generated_files/a599c1c503c8f3d486ff689d4367023ac9118106.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/vectors.o.d 
 	@${RM} ${OBJECTDIR}/time4int/vectors.o 
@@ -109,7 +109,7 @@ ${OBJECTDIR}/time4int/vectors.o: time4int/vectors.S  .generated_files/b370241d5a
 	${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/time4int/vectors.o.d"  -o ${OBJECTDIR}/time4int/vectors.o time4int/vectors.S  -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/time4int/vectors.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1 -mdfp="${DFP_DIR}"
 	@${FIXDEPS} "${OBJECTDIR}/time4int/vectors.o.d" "${OBJECTDIR}/time4int/vectors.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/time4int/labwork.o: time4int/labwork.S  .generated_files/4b8a82694a75585dcb7fe40c8590ad410bccdcf8.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/labwork.o: time4int/labwork.S  .generated_files/864f9dc3f9fb88dc4c60f6c20472137b7b39df4.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/labwork.o.d 
 	@${RM} ${OBJECTDIR}/time4int/labwork.o 
@@ -118,7 +118,7 @@ ${OBJECTDIR}/time4int/labwork.o: time4int/labwork.S  .generated_files/4b8a82694a
 	@${FIXDEPS} "${OBJECTDIR}/time4int/labwork.o.d" "${OBJECTDIR}/time4int/labwork.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 else
-${OBJECTDIR}/time4int/vectors.o: time4int/vectors.S  .generated_files/777830c85552a4b98880dcb3edd2fd4a27e75ae8.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/vectors.o: time4int/vectors.S  .generated_files/f61f3fb0fe7e1126902cca48a1fcb498be86f3a6.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/vectors.o.d 
 	@${RM} ${OBJECTDIR}/time4int/vectors.o 
@@ -126,7 +126,7 @@ ${OBJECTDIR}/time4int/vectors.o: time4int/vectors.S  .generated_files/777830c855
 	${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/time4int/vectors.o.d"  -o ${OBJECTDIR}/time4int/vectors.o time4int/vectors.S  -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/time4int/vectors.o.asm.d",--gdwarf-2 -mdfp="${DFP_DIR}"
 	@${FIXDEPS} "${OBJECTDIR}/time4int/vectors.o.d" "${OBJECTDIR}/time4int/vectors.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/time4int/labwork.o: time4int/labwork.S  .generated_files/da04a105d56d9b873235d9d9f948d217ee373a53.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/labwork.o: time4int/labwork.S  .generated_files/9ad0cdc63628354dfc32b23a91a2e75dc756072e.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/labwork.o.d 
 	@${RM} ${OBJECTDIR}/time4int/labwork.o 
@@ -139,78 +139,90 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/time4int/mipslabfunc.o: time4int/mipslabfunc.c  .generated_files/64bc6c86ac376109b0710e7c59af3ae2abc66331.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabfunc.o: time4int/mipslabfunc.c  .generated_files/f45db3fa173007da5d889604175747e054ee08bc.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabfunc.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabfunc.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabfunc.o.d" -o ${OBJECTDIR}/time4int/mipslabfunc.o time4int/mipslabfunc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/mipslabmain.o: time4int/mipslabmain.c  .generated_files/779dc431454a4d884dc6fb781a7b25ce766ee6d3.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabmain.o: time4int/mipslabmain.c  .generated_files/9fe975afc0a4a3ebd05ea477bcf12dda09ff61dd.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabmain.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabmain.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabmain.o.d" -o ${OBJECTDIR}/time4int/mipslabmain.o time4int/mipslabmain.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/time4io.o: time4int/time4io.c  .generated_files/78525ef80bd2ede82e63583cb0003b57e8fd82aa.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/time4io.o: time4int/time4io.c  .generated_files/b49531007010aa14858c1af816c9f458b4a4b9c5.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/time4io.o.d 
 	@${RM} ${OBJECTDIR}/time4int/time4io.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/time4io.o.d" -o ${OBJECTDIR}/time4int/time4io.o time4int/time4io.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/mipslabdata.o: time4int/mipslabdata.c  .generated_files/306b426de7d742d03673cf318572d19dafeb20f8.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabdata.o: time4int/mipslabdata.c  .generated_files/9b9b4a4f0e8443090981eeb8930c77fe8c3d8a8f.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabdata.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabdata.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabdata.o.d" -o ${OBJECTDIR}/time4int/mipslabdata.o time4int/mipslabdata.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/stubs.o: time4int/stubs.c  .generated_files/2be9b0934cf280db4666210c1a27175216520ed7.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/stubs.o: time4int/stubs.c  .generated_files/34db3061b53cf4ba73e7b52104d9eda9e3d2793a.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/stubs.o.d 
 	@${RM} ${OBJECTDIR}/time4int/stubs.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/stubs.o.d" -o ${OBJECTDIR}/time4int/stubs.o time4int/stubs.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/mipslabwork.o: time4int/mipslabwork.c  .generated_files/a1c2d9ee365871d1309fbaf3608c8684bb11753e.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabwork.o: time4int/mipslabwork.c  .generated_files/cad381db3fd3e285ae21f90365ec301c127f6930.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabwork.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabwork.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabwork.o.d" -o ${OBJECTDIR}/time4int/mipslabwork.o time4int/mipslabwork.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/time4int/ground.o: time4int/ground.c  .generated_files/e9ceb937c99c51c5e30b64736dc321ee8775d185.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
+	@${MKDIR} "${OBJECTDIR}/time4int" 
+	@${RM} ${OBJECTDIR}/time4int/ground.o.d 
+	@${RM} ${OBJECTDIR}/time4int/ground.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/ground.o.d" -o ${OBJECTDIR}/time4int/ground.o time4int/ground.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
-${OBJECTDIR}/time4int/mipslabfunc.o: time4int/mipslabfunc.c  .generated_files/507868c32cfad1fc404a7b39f67c69cdc6105f81.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabfunc.o: time4int/mipslabfunc.c  .generated_files/81d8709c8951c7c43fa4b557536bb5e001db1ff0.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabfunc.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabfunc.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabfunc.o.d" -o ${OBJECTDIR}/time4int/mipslabfunc.o time4int/mipslabfunc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/mipslabmain.o: time4int/mipslabmain.c  .generated_files/633f21d708ee99ea128eb7c67d9f6f336a6903be.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabmain.o: time4int/mipslabmain.c  .generated_files/bf5c50e5040ecb17d7b6435741cfdc1eff9ec4e2.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabmain.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabmain.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabmain.o.d" -o ${OBJECTDIR}/time4int/mipslabmain.o time4int/mipslabmain.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/time4io.o: time4int/time4io.c  .generated_files/149ac62bd48bdbcaddfc4f941346864b4558a2a2.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/time4io.o: time4int/time4io.c  .generated_files/87e05cc39d473e3d7bde05b77d586a71b18d977b.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/time4io.o.d 
 	@${RM} ${OBJECTDIR}/time4int/time4io.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/time4io.o.d" -o ${OBJECTDIR}/time4int/time4io.o time4int/time4io.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/mipslabdata.o: time4int/mipslabdata.c  .generated_files/a9f16023dce1f1d598079de695420f7bd6d7236e.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabdata.o: time4int/mipslabdata.c  .generated_files/e06339b2b437a34fd128a1110dc94cad03577a2f.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabdata.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabdata.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabdata.o.d" -o ${OBJECTDIR}/time4int/mipslabdata.o time4int/mipslabdata.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/stubs.o: time4int/stubs.c  .generated_files/8a28b647917a8b3d38545d1564045dd872c80235.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/stubs.o: time4int/stubs.c  .generated_files/19ae4e1e17ffa8ed60df278e77214567b17ea5b5.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/stubs.o.d 
 	@${RM} ${OBJECTDIR}/time4int/stubs.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/stubs.o.d" -o ${OBJECTDIR}/time4int/stubs.o time4int/stubs.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/time4int/mipslabwork.o: time4int/mipslabwork.c  .generated_files/d66429d11c6546e3e17dc795d93f21e98656a537.flag .generated_files/71b2fa7f85a22426d8b136d9a94b6b5776fdc3b0.flag
+${OBJECTDIR}/time4int/mipslabwork.o: time4int/mipslabwork.c  .generated_files/c24c0ad05e490cea4cbba769972be38e6309c3f9.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}/time4int" 
 	@${RM} ${OBJECTDIR}/time4int/mipslabwork.o.d 
 	@${RM} ${OBJECTDIR}/time4int/mipslabwork.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/mipslabwork.o.d" -o ${OBJECTDIR}/time4int/mipslabwork.o time4int/mipslabwork.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/time4int/ground.o: time4int/ground.c  .generated_files/85891b1b86fb9da1cc5cd5e7ffbb3d6d1067079.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
+	@${MKDIR} "${OBJECTDIR}/time4int" 
+	@${RM} ${OBJECTDIR}/time4int/ground.o.d 
+	@${RM} ${OBJECTDIR}/time4int/ground.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/time4int/ground.o.d" -o ${OBJECTDIR}/time4int/ground.o time4int/ground.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
@@ -223,15 +235,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)   -mreserve=data@0x0:0x1FC -mreserve=boot@0x1FC02000:0x1FC02FEF -mreserve=boot@0x1FC02000:0x1FC024FF  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
+	${MP_CC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)   -mreserve=data@0x0:0x1FC -mreserve=boot@0x1FC02000:0x1FC02FEF -mreserve=boot@0x1FC02000:0x1FC024FF  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
-	${MP_CC_DIR}/xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/MPLABXProjects.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
+	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/miniproject.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 
 
@@ -250,7 +262,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

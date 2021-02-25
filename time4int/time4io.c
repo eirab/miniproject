@@ -1,6 +1,6 @@
 #include <stdint.h>   /* Declarations of uint_32 and the like */
  /* Declarations of system-specific addresses etc */
-#include "/home/eira/MPLABXProjects/mipslab.h"  /* Declatations for these labs */ 
+#include "mipslab.h"  /* Declatations for these labs */ 
 #include <xc.h>
 int getsw(void){
     
